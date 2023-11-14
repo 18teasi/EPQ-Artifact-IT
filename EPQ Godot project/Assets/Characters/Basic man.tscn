@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds1tmma5uj383"]
+
+[ext_resource type="Texture2D" uid="uid://cmp3ihw1yqnm7" path="res://Assets/PNGs/Basic man.png" id="1_j1m28"]
+[ext_resource type="Script" path="res://Assets/Characters/Basic man.gd" id="1_x4yvj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2wqv"]
+size = Vector2(200, 112)
+
+[node name="Node2D" type="CharacterBody2D"]
+script = ExtResource("1_x4yvj")
+
+[node name="BasicMan" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-06, 4.76837e-06)
+rotation = 1.5708
+scale = Vector2(1.024, 1.02716)
+texture = ExtResource("1_j1m28")
+offset = Vector2(15, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_a2wqv")

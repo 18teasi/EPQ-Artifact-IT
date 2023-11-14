@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjqqktvu5j6qr"]
+
+[ext_resource type="PackedScene" uid="uid://ds1tmma5uj383" path="res://Assets/Characters/Basic man.tscn" id="1_4d570"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BasicMan" parent="." instance=ExtResource("1_4d570")]
