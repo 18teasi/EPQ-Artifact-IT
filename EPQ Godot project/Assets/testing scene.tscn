@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjqqktvu5j6qr"]
+[gd_scene load_steps=3 format=3 uid="uid://bjqqktvu5j6qr"]
 
 [ext_resource type="PackedScene" uid="uid://ds1tmma5uj383" path="res://Assets/Characters/Basic man.tscn" id="1_4d570"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rp3no"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="BasicMan" parent="." instance=ExtResource("1_4d570")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rp3no")

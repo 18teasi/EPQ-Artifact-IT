@@ -1,10 +1,17 @@
 extends Node2D
-
+var weapon = 0
 const SPEED = 500
+var can_primary_fire = true
+var bullet_scene = preload("res://Assets/Projectiles/bullet.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func on_player_primary_fire():
+	print ("Fire")
+#	var bullet = bullet_scene.instantiate()
+#	add_child(bullet)
+#	bullet.position = $"Bullet spawn".position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -12,11 +19,20 @@ func _process(delta):
 	#movement code
 	var direction = Input.get_vector("MoveLeft","MoveRight","MoveUp","MoveDown")
 	position += direction * SPEED * delta
+
 	
 	#player facing code
 	look_at(get_global_mouse_position())
 	
 	
 	#primary fire input
-	if Input.is_action_just_pressed("PrimaryFire"):
-		print("fire")
+	if Input.is_action_pressed("PrimaryFire") and can_primary_fire:
+		
+		on_player_primary_fire()
+		can_primary_fire = false
+		$"Primary fire cooldown".start()
+	
+
+
+func _on_primary_fire_cooldown_timeout():
+	can_primary_fire = true

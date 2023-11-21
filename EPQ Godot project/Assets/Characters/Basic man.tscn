@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds1tmma5uj383"]
+[gd_scene load_steps=5 format=3 uid="uid://ds1tmma5uj383"]
 
 [ext_resource type="Texture2D" uid="uid://cmp3ihw1yqnm7" path="res://Assets/PNGs/Basic man.png" id="1_j1m28"]
 [ext_resource type="Script" path="res://Assets/Characters/Basic man.gd" id="1_x4yvj"]
+[ext_resource type="Texture2D" uid="uid://cacfcwom6prra" path="res://Assets/PNGs/Game Weapon Pistol.png" id="3_njyue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2wqv"]
 size = Vector2(200, 112)
@@ -19,3 +20,18 @@ offset = Vector2(15, -19)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_a2wqv")
+
+[node name="GameWeaponPistol" type="Sprite2D" parent="."]
+position = Vector2(88, 0)
+rotation = 1.57079
+scale = Vector2(0.228393, 0.230058)
+texture = ExtResource("3_njyue")
+
+[node name="Bullet spawn" type="Marker2D" parent="."]
+position = Vector2(126, -3)
+
+[node name="Primary fire cooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Primary fire cooldown" to="." method="_on_primary_fire_cooldown_timeout"]
