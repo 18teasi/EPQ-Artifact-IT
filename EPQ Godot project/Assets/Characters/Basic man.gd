@@ -30,6 +30,7 @@ func _process(delta):
 		
 		on_player_primary_fire()
 		can_primary_fire = false
+		
 		$"Primary fire cooldown".start()
 	
 
