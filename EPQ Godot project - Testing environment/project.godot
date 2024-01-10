@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="EPQ project Isaac Teasdale"
+config/name="EPQ project Isaac Teasdale - Testing environment"
 run/main_scene="res://Assets/testing scene.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://Assets/icon.svg"

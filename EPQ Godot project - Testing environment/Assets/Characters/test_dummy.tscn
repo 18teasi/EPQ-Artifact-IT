@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://chjsq1rhkvpbe"]
+
+[ext_resource type="Texture2D" uid="uid://dggade8efnh3f" path="res://Assets/PNGs/Test Dummy.png" id="1_nq6xw"]
+
+[node name="Test Dummy" type="Node2D"]
+
+[node name="TestDummy" type="Sprite2D" parent="."]
+position = Vector2(-1.52588e-05, -3.8147e-06)
+rotation = 1.5708
+scale = Vector2(0.171986, 0.171986)
+texture = ExtResource("1_nq6xw")
