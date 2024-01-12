@@ -8,7 +8,9 @@ radius = 3.0
 height = 16.0
 
 [node name="Bullet" type="Area2D"]
+scale = Vector2(0.599999, 0.599999)
 script = ExtResource("1_vt613")
+bulletspeed = 2000
 
 [node name="Bullet" type="Sprite2D" parent="."]
 position = Vector2(3.8147e-06, -3.8147e-06)
