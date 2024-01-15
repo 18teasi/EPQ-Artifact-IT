@@ -1,11 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://chjsq1rhkvpbe"]
+[gd_scene load_steps=4 format=3 uid="uid://chjsq1rhkvpbe"]
 
-[ext_resource type="Texture2D" uid="uid://dggade8efnh3f" path="res://Assets/PNGs/Test Dummy.png" id="1_nq6xw"]
+[ext_resource type="Script" path="res://TestDummy.gd" id="1_ubstf"]
+[ext_resource type="Texture2D" uid="uid://dggade8efnh3f" path="res://Assets/PNGs/Test Dummy.png" id="2_lafcx"]
 
-[node name="Test Dummy" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkaaj"]
+size = Vector2(248, 424)
 
-[node name="TestDummy" type="Sprite2D" parent="."]
-position = Vector2(-1.52588e-05, -3.8147e-06)
+[node name="TestDummy" type="CharacterBody2D"]
+script = ExtResource("1_ubstf")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
 rotation = 1.5708
-scale = Vector2(0.171986, 0.171986)
-texture = ExtResource("1_nq6xw")
+texture = ExtResource("2_lafcx")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(4, -4)
+shape = SubResource("RectangleShape2D_tkaaj")
