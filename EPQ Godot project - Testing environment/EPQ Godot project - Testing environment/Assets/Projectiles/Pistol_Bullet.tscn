@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cyrm1c8l6dcd6"]
 
-[ext_resource type="Texture2D" uid="uid://c1o26a1vq41s0" path="res://Assets/PNGs/Bullet.png" id="1_nktti"]
-[ext_resource type="Script" path="res://Assets/Projectiles/bullet.gd" id="1_vt613"]
+[ext_resource type="Script" path="res://Assets/Projectiles/bullet.gd" id="1_o5w4h"]
+[ext_resource type="Texture2D" uid="uid://c1o26a1vq41s0" path="res://Assets/PNGs/Bullet.png" id="2_sli2l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q11mv"]
 radius = 3.0
@@ -9,13 +9,13 @@ height = 16.0
 
 [node name="Pistol bullet" type="Area2D"]
 scale = Vector2(0.599999, 0.599999)
-script = ExtResource("1_vt613")
+script = ExtResource("1_o5w4h")
 bulletspeed = 2000
 
 [node name="Bullet" type="Sprite2D" parent="."]
 position = Vector2(3.8147e-06, -3.8147e-06)
 scale = Vector2(0.0585106, 0.0585106)
-texture = ExtResource("1_nktti")
+texture = ExtResource("2_sli2l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_q11mv")
