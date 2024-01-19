@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjqqktvu5j6qr"]
+
+[ext_resource type="PackedScene" uid="uid://b3f88hxg3t763" path="res://Assets/Characters/Basic man/Basic man.tscn" id="1_4d570"]
+[ext_resource type="Script" path="res://Assets/testing scene.gd" id="1_u6ar8"]
+[ext_resource type="Texture2D" uid="uid://ck2beebjyx23g" path="res://Assets/icon.svg" id="3_eswre"]
+[ext_resource type="PackedScene" uid="uid://chjsq1rhkvpbe" path="res://Assets/Characters/test_dummy.tscn" id="4_bkowd"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_u6ar8")
+
+[node name="BasicMan" parent="." instance=ExtResource("1_4d570")]
+scale = Vector2(0.403333, 0.384391)
+
+[node name="Camera2D" type="Camera2D" parent="BasicMan"]
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(152, -72)
+texture = ExtResource("3_eswre")
+
+[node name="Test Dummy" parent="." instance=ExtResource("4_bkowd")]
+position = Vector2(222, 169)
+rotation = -1.57079
+
+[connection signal="player_primary_fire" from="BasicMan" to="." method="_on_basic_man_player_primary_fire"]
