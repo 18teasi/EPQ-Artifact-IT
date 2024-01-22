@@ -23,4 +23,16 @@ texture = ExtResource("3_eswre")
 position = Vector2(222, 169)
 rotation = -1.57079
 
+[node name="Test Dummy2" parent="." instance=ExtResource("4_bkowd")]
+position = Vector2(335, 171)
+rotation = -1.57079
+
+[node name="Test Dummy4" parent="." instance=ExtResource("4_bkowd")]
+position = Vector2(97, 175)
+rotation = -1.57079
+
+[node name="Test Dummy3" parent="." instance=ExtResource("4_bkowd")]
+position = Vector2(447, 171)
+rotation = -1.57079
+
 [connection signal="player_primary_fire" from="BasicMan" to="." method="_on_basic_man_player_primary_fire"]
