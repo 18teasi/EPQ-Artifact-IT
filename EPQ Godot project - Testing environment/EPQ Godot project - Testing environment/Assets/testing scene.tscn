@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjqqktvu5j6qr"]
+[gd_scene load_steps=6 format=3 uid="uid://bjqqktvu5j6qr"]
 
 [ext_resource type="PackedScene" uid="uid://b3f88hxg3t763" path="res://Assets/Characters/Basic man/Basic man.tscn" id="1_4d570"]
 [ext_resource type="Script" path="res://Assets/testing scene.gd" id="1_u6ar8"]
 [ext_resource type="Texture2D" uid="uid://ck2beebjyx23g" path="res://Assets/icon.svg" id="3_eswre"]
 [ext_resource type="PackedScene" uid="uid://chjsq1rhkvpbe" path="res://Assets/Characters/test_dummy.tscn" id="4_bkowd"]
+[ext_resource type="PackedScene" uid="uid://dhu5qyi3a0vax" path="res://Assets/Characters/test_dummy_with_gun.tscn" id="5_ra3iw"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_u6ar8")
 
 [node name="BasicMan" parent="." instance=ExtResource("1_4d570")]
+position = Vector2(-63, 13)
 scale = Vector2(0.403333, 0.384391)
 
 [node name="Camera2D" type="Camera2D" parent="BasicMan"]
@@ -35,4 +37,8 @@ rotation = -1.57079
 position = Vector2(447, 171)
 rotation = -1.57079
 
+[node name="Gun Dummy" parent="." instance=ExtResource("5_ra3iw")]
+position = Vector2(379, -65)
+
 [connection signal="player_primary_fire" from="BasicMan" to="." method="_on_basic_man_player_primary_fire"]
+[connection signal="enemy_primary_fire" from="Gun Dummy" to="." method="_on_gun_dummy_enemy_primary_fire"]

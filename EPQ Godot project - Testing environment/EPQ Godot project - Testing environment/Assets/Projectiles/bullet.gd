@@ -13,11 +13,12 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	queue_free()
 	if body.has_method("hit"):
 		body.damageinstance = damage
 		body.hit()
 		
-	queue_free()
+
 
 
 func _on_timer_timeout():

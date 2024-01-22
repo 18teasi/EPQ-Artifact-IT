@@ -25,5 +25,4 @@ wait_time = 2.0
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="timeout" from="ExpiryTimer" to="." method="_on_timer_timeout"]

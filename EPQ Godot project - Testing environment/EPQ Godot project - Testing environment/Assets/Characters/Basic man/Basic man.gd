@@ -9,7 +9,7 @@ preload("res://Assets/PNGs/Overheat MG placeholder.png")]
 var weapon = 0
 const SPEED = 500
 var health = 100
-const mgbulletspawns = []
+var selectedspawn = 0
 var can_primary_fire = true
 var bullet_scene = preload("res://Assets/Projectiles/Pistol_Bullet.tscn")
 
@@ -19,7 +19,10 @@ func on_player_primary_fire():
 	if weapon == 1:
 		bulletspawn = $"Pistol Bullet spawn"
 	if weapon == 2:
-		bulletspawn = $"MG Bullet spawns/MG Bullet spawn 1"
+		bulletspawn = $"MG Bullet spawns".get_children()[selectedspawn % 2]
+		selectedspawn += 1
+		
+		
 	var player_direction = (get_global_mouse_position()- position).normalized()
 	player_primary_fire.emit(bulletspawn.global_position, player_direction, damage)
 	can_primary_fire = false
@@ -60,7 +63,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("Weapon 2"):
 		$"Primary fire cooldown".wait_time = 0.05
 		weapon = 2
-		var bulletspawn = $"MG Bullet spawns"
 		$GameWeaponSprite.texture = textures[weapon-1]
 		
 	
