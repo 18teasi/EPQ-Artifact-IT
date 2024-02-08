@@ -25,3 +25,12 @@ func _on_gun_dummy_enemy_primary_fire(pos, direction, damage):
 	bullet.direction = direction
 	bullet.damage = damage
 	$Projectiles.add_child(bullet)
+	$UI.update_ammo_counter()
+
+
+func _on_static_body_2d_body_entered(body):
+	pass
+
+
+func _on_basic_man_player_weapon_change():
+	$UI.update_ammo_counter()

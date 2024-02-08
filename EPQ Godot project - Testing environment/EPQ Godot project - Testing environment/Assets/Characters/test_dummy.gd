@@ -18,8 +18,7 @@ func dead():
 
 func hit():
 	health -= damageinstance
-	print(health)
-	print("hit")
+
 
 
 
