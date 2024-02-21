@@ -18,6 +18,7 @@ var health = 100
 var selectedspawn = 0
 var can_primary_fire = true
 var bullet_scene = preload("res://Assets/Projectiles/Pistol_Bullet.tscn")
+var damageinstance = 0
 
 
 func on_player_primary_fire():
@@ -36,10 +37,15 @@ func on_player_primary_fire():
 	can_primary_fire = false
 	$"Primary fire cooldown".start()
 
+func hit():
+	Global.playerhealth -= damageinstance
+	print(Global.playerhealth)
+	if Global.playerhealth <= 0:
+		dead()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	#movement code
 	var direction = Input.get_vector("MoveLeft","MoveRight","MoveUp","MoveDown")
 	position += direction * SPEED * delta
@@ -59,6 +65,8 @@ func _process(delta):
 			on_player_primary_fire()
 		
 		#code to handle weapon swapping
+	
+	#weapon switch code
 	if Input.is_action_just_pressed("Weapon 0"):
 		weapon = 0
 		Global.weapon = 0
@@ -84,3 +92,8 @@ func _process(delta):
 
 func _on_primary_fire_cooldown_timeout():
 	can_primary_fire = true
+
+
+func dead():
+	print("dead")
+	pass

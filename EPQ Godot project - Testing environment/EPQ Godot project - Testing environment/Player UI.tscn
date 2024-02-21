@@ -39,16 +39,73 @@ layout_mode = 2
 text = "Max_Ammo
 "
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = 383.0
-offset_top = 614.0
-offset_right = 744.0
-offset_bottom = 654.0
+[node name="Health counter" type="Control" parent="."]
+layout_mode = 3
+anchor_top = 0.914
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 23.728
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+
+[node name="Bar" type="MarginContainer" parent="Health counter"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -56.0
+offset_right = 192.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/margin_bottom = 15
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer"]
+[node name="Health_Bar" type="ProgressBar" parent="Health counter/Bar"]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 1
 tooltip_text = "Health
 "
 value = 100.0
+show_percentage = false
+
+[node name="Label" type="MarginContainer" parent="Health counter"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -23.0
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 55
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Health counter/Label"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Health counter/Label/HBoxContainer"]
+layout_mode = 2
+text = "Health:
+"
+
+[node name="Current_Health_Label" type="Label" parent="Health counter/Label/HBoxContainer"]
+layout_mode = 2
+text = "Current health
+"
+
+[node name="Slash" type="Label" parent="Health counter/Label/HBoxContainer"]
+layout_mode = 2
+text = "/
+"
+
+[node name="Max_Health_Label" type="Label" parent="Health counter/Label/HBoxContainer"]
+layout_mode = 2
+text = "Max_Health
+"
