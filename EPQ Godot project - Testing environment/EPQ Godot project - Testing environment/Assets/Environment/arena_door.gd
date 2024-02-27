@@ -1,15 +1,11 @@
-extends AnimatableBody2D
+extends Path2D
 
 
-
-func open():
-	$AnimationPlayer.play("Open")
-	
-	
-
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	open()
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-
+func _process(delta):
+	pass
