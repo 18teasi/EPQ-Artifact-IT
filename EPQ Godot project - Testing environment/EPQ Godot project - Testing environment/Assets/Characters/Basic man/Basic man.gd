@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 signal player_primary_fire(pos, direction, damage)
 signal player_weapon_change()
@@ -48,7 +48,8 @@ func hit():
 func _process(delta):
 	#movement code
 	var direction = Input.get_vector("MoveLeft","MoveRight","MoveUp","MoveDown")
-	position += direction * SPEED * delta
+	velocity = direction * 500
+	move_and_slide()
 	damage = damagevalues[weapon]
 	
 	
@@ -74,8 +75,8 @@ func _process(delta):
 		player_weapon_change.emit()
 		
 	if Input.is_action_just_pressed("weapon 1"):
-		$"Primary fire cooldown".wait_time = firerate[weapon-1]
 		weapon = 1
+		$"Primary fire cooldown".wait_time = firerate[weapon]
 		Global.weapon = 1
 		$GameWeaponSprite.texture = textures[weapon-1]
 		player_weapon_change.emit()

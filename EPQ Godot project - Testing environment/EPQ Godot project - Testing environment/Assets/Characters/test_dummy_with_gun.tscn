@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cacfcwom6prra" path="res://Assets/PNGs/Game Weapon Pistol.png" id="2_ws2up"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5oopo"]
-size = Vector2(558.184, 372.125)
+size = Vector2(360.495, 186.062)
 
 [node name="Test Dummy" type="CharacterBody2D"]
 script = ExtResource("1_s2622")
@@ -17,7 +17,7 @@ scale = Vector2(0.171986, 0.171986)
 texture = ExtResource("2_h2ns6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-9.53674e-07, 2.14577e-06)
+position = Vector2(-1.00001, -2.00001)
 rotation = 1.5708
 scale = Vector2(0.171986, 0.171986)
 shape = SubResource("RectangleShape2D_5oopo")
