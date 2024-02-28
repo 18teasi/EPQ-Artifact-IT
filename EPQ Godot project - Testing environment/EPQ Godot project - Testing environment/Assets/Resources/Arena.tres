@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Arena_Resource" load_steps=2 format=3 uid="uid://3l74n1xjg3be"]
+
+[ext_resource type="Script" path="res://Assets/Resources/Arena.gd" id="1_beqrk"]
+
+[resource]
+script = ExtResource("1_beqrk")
+Arena = 0
+Enimies = []

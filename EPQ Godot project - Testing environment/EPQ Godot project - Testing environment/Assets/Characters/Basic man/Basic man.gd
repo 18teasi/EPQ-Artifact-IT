@@ -45,7 +45,7 @@ func hit():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#movement code
 	var direction = Input.get_vector("MoveLeft","MoveRight","MoveUp","MoveDown")
 	velocity = direction * 500
