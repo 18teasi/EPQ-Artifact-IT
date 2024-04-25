@@ -5,7 +5,15 @@ signal player_weapon_change()
 
 const damagevalues = [0,5, 2]
 const firerate = [0,0.25,0.03]
-
+class gun:
+	func _init(texture,):
+		self.texture = texture
+		self.bulletspawn 
+		self.damage = 0
+		self.firerate = 0
+func _ready():
+	var noweapon = gun.new($"Pistol Bullet spawn",)
+	print(noweapon.damage)
 
 
 
