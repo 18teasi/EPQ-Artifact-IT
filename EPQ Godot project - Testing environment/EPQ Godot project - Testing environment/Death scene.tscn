@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxvmcha14fwgn"]
+
+[ext_resource type="Script" path="res://Death scene.gd" id="1_pjwlp"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pjwlp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1160.0
+offset_bottom = 648.0
+size_flags_vertical = 8
+
+[node name="Button container" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 312.0
+offset_top = -232.0
+offset_right = -320.0
+offset_bottom = -159.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="Control/Button container"]
+layout_mode = 2
+text = "Restart"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer"]
+layout_mode = 2
+text = "You died"
+
+[connection signal="pressed" from="Control/Button container/Button" to="." method="_on_button_pressed"]

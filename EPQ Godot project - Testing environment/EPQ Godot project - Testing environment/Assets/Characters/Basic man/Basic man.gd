@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal player_primary_fire(pos, direction, damage)
 signal player_weapon_change()
+signal player_died()
 
 const damagevalues = [0,5, 2]
 const firerate = [0,0.25,0.03]
@@ -85,6 +86,8 @@ func _process(_delta):
 		Global.weapon = 2
 		$GameWeaponSprite.texture = textures[weapon-1]
 		player_weapon_change.emit()
+	if Input.is_key_pressed(KEY_F):
+		dead()
 		
 	
 
@@ -94,5 +97,4 @@ func _on_primary_fire_cooldown_timeout():
 
 
 func dead():
-	print("dead")
-	pass
+	player_died.emit()

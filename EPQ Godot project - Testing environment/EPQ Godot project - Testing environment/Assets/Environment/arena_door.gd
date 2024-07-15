@@ -6,7 +6,6 @@ signal arenastart
 const doortexture = preload("res://Assets/PNGs/Lockdown door.png")
 @export var active = false
 @export var speed = 2
-var arena = $".".get_meta("key")
 @onready var path = $PathFolllow2D
 @onready var animation = $AnimationPlayer
 

@@ -34,3 +34,10 @@ func _on_static_body_2d_body_entered(body):
 
 func _on_basic_man_player_weapon_change():
 	$UI.update_ammo_counter()
+
+
+
+func _on_basic_man_player_died():
+	dead()
+func dead():
+	get_tree().change_scene("res://Death scene.tscn")
