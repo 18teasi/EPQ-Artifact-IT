@@ -8,6 +8,7 @@
 size = Vector2(360.495, 186.062)
 
 [node name="Test Dummy" type="CharacterBody2D"]
+rotation = -0.00342749
 script = ExtResource("1_s2622")
 
 [node name="TestDummy" type="Sprite2D" parent="."]

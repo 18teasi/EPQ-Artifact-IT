@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dhu5qyi3a0vax" path="res://Assets/Characters/test_dummy_with_gun.tscn" id="5_ra3iw"]
 [ext_resource type="Texture2D" uid="uid://ceirm1smji3if" path="res://Assets/PNGs/bgtiles.png" id="6_i3fb6"]
 [ext_resource type="PackedScene" uid="uid://b1inlv6pg8s4o" path="res://Player UI.tscn" id="7_l1bmv"]
-[ext_resource type="PackedScene" uid="uid://cmbjhdf3brt32" path="res://Assets/Environment/arena_door.tscn" id="7_n66t1"]
+[ext_resource type="PackedScene" uid="uid://tl8k41fg36gk" path="res://Assets/Characters/Enemies/Turret.tscn" id="7_pbpcw"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_q2fa2"]
 tile_data = PackedInt32Array(0, 262144, 4, 65536, 262144, 5)
@@ -298,9 +298,9 @@ rotation = -1.587
 position = Vector2(447, 171)
 rotation = -1.57079
 
-[node name="Gun Dummy" parent="." instance=ExtResource("5_ra3iw")]
+[node name="Gun Dummy" parent="." groups=["Enemy"] instance=ExtResource("5_ra3iw")]
 position = Vector2(398, -74)
-rotation = 0.00599242
+rotation = -0.411393
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(10, 61.9999)
@@ -320,12 +320,9 @@ scale = Vector2(3.0779, 3.0779)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level collision"]
 polygon = PackedVector2Array(7.14773, 17.8693, 329.77, 18.5191, 330.745, -148.153, 329.77, -205.01, 329.77, -181.292, 5.52325, -178.693, 8.12242, -116.638, 8.12242, -92.5956, -199.812, -91.296, -326.521, -92.5956, -326.196, -217.681, -516.261, -216.706, -679.684, -212.807, -679.359, 114.039, -325.872, 113.714, -326.846, -45.8105, 8.12242, -46.1354, 8.12242, 17.8693, -6.17304, 17.2195, -34.1142, -18.5191, -320.023, 145.879, -706.651, 143.28, -722.246, -265.441, -299.88, -264.141, 137.431, -266.091, 394.75, -236.85, 380.454, 33.4644, 12.671, 51.0088)
 
-[node name="Arena door" parent="." instance=ExtResource("7_n66t1")]
-position = Vector2(-1124, -40)
-scale = Vector2(-0.425929, -0.425929)
-metadata/Arena_no = 2
+[node name="Turret 1" parent="." groups=["Enemy"] instance=ExtResource("7_pbpcw")]
+position = Vector2(-1579, 306)
 
 [connection signal="player_died" from="BasicMan" to="." method="_on_basic_man_player_died"]
 [connection signal="player_primary_fire" from="BasicMan" to="." method="_on_basic_man_player_primary_fire"]
 [connection signal="player_weapon_change" from="BasicMan" to="." method="_on_basic_man_player_weapon_change"]
-[connection signal="enemy_primary_fire" from="Gun Dummy" to="." method="_on_gun_dummy_enemy_primary_fire"]

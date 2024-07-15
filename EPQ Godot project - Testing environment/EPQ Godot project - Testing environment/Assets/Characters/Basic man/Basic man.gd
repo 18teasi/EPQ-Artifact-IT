@@ -45,7 +45,10 @@ func hit():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	#updates the position of the player for enemy tracking
+	Global.playerpos = global_position
 	#movement code
+	print(Global.playerpos)
 	var direction = Input.get_vector("MoveLeft","MoveRight","MoveUp","MoveDown")
 	velocity = direction * 500
 	move_and_slide()
@@ -86,8 +89,6 @@ func _process(_delta):
 		Global.weapon = 2
 		$GameWeaponSprite.texture = textures[weapon-1]
 		player_weapon_change.emit()
-	if Input.is_key_pressed(KEY_F):
-		dead()
 		
 	
 
