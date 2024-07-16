@@ -48,7 +48,6 @@ func _process(_delta):
 	#updates the position of the player for enemy tracking
 	Global.playerpos = global_position
 	#movement code
-	print(Global.playerpos)
 	var direction = Input.get_vector("MoveLeft","MoveRight","MoveUp","MoveDown")
 	velocity = direction * 500
 	move_and_slide()

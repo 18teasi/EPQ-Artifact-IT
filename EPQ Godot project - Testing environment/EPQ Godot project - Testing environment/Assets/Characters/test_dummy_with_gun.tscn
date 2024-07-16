@@ -10,6 +10,7 @@ size = Vector2(360.495, 186.062)
 [node name="Test Dummy" type="CharacterBody2D"]
 rotation = -0.00342749
 script = ExtResource("1_s2622")
+metadata/Active = true
 
 [node name="TestDummy" type="Sprite2D" parent="."]
 position = Vector2(-1.52588e-05, -3.8147e-06)

@@ -2,12 +2,6 @@
 
 [ext_resource type="Script" path="res://Assets/Environment/arena_door.gd" id="1_bxl3c"]
 
-[sub_resource type="Curve2D" id="Curve2D_i8gbh"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -586, 0, 0, 0, 0, 0, -23.4781)
-}
-point_count = 2
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y83v2"]
 size = Vector2(452.826, 222.395)
 
@@ -16,7 +10,7 @@ resource_name = "Open"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PathFolllow2D:progress_ratio")
+tracks/0/path = NodePath("Path2D/PathFolllow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -31,7 +25,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PathFolllow2D:progress_ratio")
+tracks/0/path = NodePath("Path2D/PathFolllow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -47,21 +41,21 @@ _data = {
 "RESET": SubResource("Animation_f7pnw")
 }
 
-[node name="Arena door" type="Path2D"]
-curve = SubResource("Curve2D_i8gbh")
+[sub_resource type="Curve2D" id="Curve2D_2qasl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -376, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
+
+[node name="Arena door" type="Node2D"]
+scale = Vector2(0.600001, 0.600001)
 script = ExtResource("1_bxl3c")
 metadata/key = 0
 
-[node name="PathFolllow2D" type="PathFollow2D" parent="."]
-position = Vector2(0, -586)
-rotation = 1.5708
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFolllow2D"]
-remote_path = NodePath("../../AnimatableBody2D")
-
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-position = Vector2(0, -586)
+position = Vector2(0, -376)
 rotation = 1.5708
+scale = Vector2(1, 1)
 
 [node name="LockdownDoor" type="Sprite2D" parent="AnimatableBody2D"]
 position = Vector2(-28.7718, -1.25766e-06)
@@ -76,3 +70,14 @@ shape = SubResource("RectangleShape2D_y83v2")
 libraries = {
 "": SubResource("AnimationLibrary_hbcbu")
 }
+metadata/Arena = 0
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_2qasl")
+
+[node name="PathFolllow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, -376)
+rotation = 1.5708
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFolllow2D"]
+remote_path = NodePath("../../../AnimatableBody2D")

@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://csm8eu25vnnsd"]
+
+[ext_resource type="Script" path="res://Assets/Characters/Enemies/gun_robot.gd" id="1_0bsbr"]
+[ext_resource type="Texture2D" uid="uid://b6xu166a3ippl" path="res://Assets/PNGs/Gun robot- standard.png" id="1_fy1iw"]
+[ext_resource type="Texture2D" uid="uid://cacfcwom6prra" path="res://Assets/PNGs/Game Weapon Pistol.png" id="2_v7ruf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sliai"]
+radius = 715.264
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhwks"]
+size = Vector2(199.852, 136)
+
+[node name="Gun robot" type="CharacterBody2D" groups=["Enemy"]]
+rotation = 3.14159
+script = ExtResource("1_0bsbr")
+metadata/Active = true
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 1
+scale = Vector2(1.33049, 0.989572)
+
+[node name="Attack distance" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1, 1.32)
+shape = SubResource("CircleShape2D_sliai")
+
+[node name="GunRobot-Standard" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.52, 0.515402)
+texture = ExtResource("1_fy1iw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+scale = Vector2(1.32098, 1)
+shape = SubResource("RectangleShape2D_bhwks")
+
+[node name="GameWeaponPistol" type="Sprite2D" parent="."]
+position = Vector2(81, -51)
+scale = Vector2(0.461943, 0.461943)
+texture = ExtResource("2_v7ruf")
+
+[node name="GameWeaponPistol2" type="Sprite2D" parent="."]
+position = Vector2(-83, -50)
+scale = Vector2(0.461943, 0.461943)
+texture = ExtResource("2_v7ruf")
+
+[node name="Attack cooldown" type="Timer" parent="."]
+
+[node name="Bullet spawns" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Bullet spawns"]
+position = Vector2(-89, -130)
+
+[node name="Marker2D2" type="Marker2D" parent="Bullet spawns"]
+position = Vector2(76, -128)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Attack cooldown" to="." method="_on_attack_cooldown_timeout"]

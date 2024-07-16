@@ -1,4 +1,4 @@
-extends Path2D
+extends Node2D
 
 signal arenastart
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +19,8 @@ func close():
 	if not active:
 		$AnimatableBody2D/LockdownDoor.texture = doortexture
 		animation.play("Open")
-		print("opening arena door", arena)
+		var arena = get_meta("key")
+		print("opening arena door",  arena)
 func open():
 	if not active:
 		$AnimatableBody2D/LockdownDoor.texture = null
