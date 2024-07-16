@@ -44,6 +44,7 @@ scale = Vector2(0.461943, 0.461943)
 texture = ExtResource("2_v7ruf")
 
 [node name="Attack cooldown" type="Timer" parent="."]
+wait_time = 1.5
 
 [node name="Bullet spawns" type="Node2D" parent="."]
 
