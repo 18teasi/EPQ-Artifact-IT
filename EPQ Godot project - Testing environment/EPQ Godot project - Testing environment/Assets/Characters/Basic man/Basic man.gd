@@ -41,6 +41,7 @@ func hit():
 	print(Global.playerhealth)
 	if Global.playerhealth <= 0:
 		dead()
+	$"Blood particle emitter".emitting = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

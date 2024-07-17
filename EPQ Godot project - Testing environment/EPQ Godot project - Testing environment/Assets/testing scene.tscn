@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjqqktvu5j6qr"]
+[gd_scene load_steps=13 format=3 uid="uid://bjqqktvu5j6qr"]
 
 [ext_resource type="PackedScene" uid="uid://b3f88hxg3t763" path="res://Assets/Characters/Basic man/Basic man.tscn" id="1_4d570"]
 [ext_resource type="Script" path="res://Assets/testing scene.gd" id="1_u6ar8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b1inlv6pg8s4o" path="res://Player UI.tscn" id="7_l1bmv"]
 [ext_resource type="PackedScene" uid="uid://csm8eu25vnnsd" path="res://Assets/Characters/Enemies/gun_robot.tscn" id="8_ddse4"]
 [ext_resource type="PackedScene" uid="uid://cmbjhdf3brt32" path="res://Assets/Environment/arena_door.tscn" id="8_vu6tb"]
+[ext_resource type="PackedScene" uid="uid://tl8k41fg36gk" path="res://Assets/Characters/Enemies/Turret.tscn" id="9_32i1h"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_q2fa2"]
 tile_data = PackedInt32Array(0, 262144, 4, 65536, 262144, 5)
@@ -303,7 +304,6 @@ rotation = -1.57079
 [node name="Gun Dummy" parent="." groups=["Enemy"] instance=ExtResource("5_ra3iw")]
 position = Vector2(398, -74)
 rotation = -0.411393
-metadata/Active = false
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(10, 61.9999)
@@ -328,8 +328,12 @@ position = Vector2(-1104, 2)
 metadata/key = 2
 
 [node name="Gun robot2" parent="." instance=ExtResource("8_ddse4")]
-position = Vector2(-2070, -219)
+position = Vector2(10.9998, -238)
 scale = Vector2(0.48, 0.48)
+metadata/Active = false
+
+[node name="Turret" parent="." instance=ExtResource("9_32i1h")]
+position = Vector2(-1594, 378)
 
 [connection signal="player_died" from="BasicMan" to="." method="_on_basic_man_player_died"]
 [connection signal="player_primary_fire" from="BasicMan" to="." method="_on_basic_man_player_primary_fire"]

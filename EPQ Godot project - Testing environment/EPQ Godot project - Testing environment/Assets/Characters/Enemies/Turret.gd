@@ -24,6 +24,8 @@ func _process(_delta):
 		dead()
 	if can_primary_fire:
 		on_primary_fire()
+	if health < 20:
+		$"Turret head/CPUParticles2D".emitting = true
 		
 		
 
