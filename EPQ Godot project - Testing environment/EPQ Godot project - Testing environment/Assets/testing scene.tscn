@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjqqktvu5j6qr"]
+[gd_scene load_steps=14 format=3 uid="uid://bjqqktvu5j6qr"]
 
 [ext_resource type="PackedScene" uid="uid://b3f88hxg3t763" path="res://Assets/Characters/Basic man/Basic man.tscn" id="1_4d570"]
 [ext_resource type="Script" path="res://Assets/testing scene.gd" id="1_u6ar8"]
@@ -272,6 +272,9 @@ texture = ExtResource("6_i3fb6")
 sources/0 = SubResource("TileSetAtlasSource_hu07k")
 pattern_0 = SubResource("TileMapPattern_q2fa2")
 
+[sub_resource type="Environment" id="Environment_2gqr8"]
+volumetric_fog_enabled = true
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_u6ar8")
 
@@ -302,8 +305,9 @@ position = Vector2(447, 171)
 rotation = -1.57079
 
 [node name="Gun Dummy" parent="." groups=["Enemy"] instance=ExtResource("5_ra3iw")]
-position = Vector2(398, -74)
-rotation = -0.411393
+position = Vector2(126, -284)
+rotation = 1.57079
+metadata/Active = false
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(10, 61.9999)
@@ -321,19 +325,23 @@ position = Vector2(-164, 205)
 scale = Vector2(3.0779, 3.0779)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level collision"]
-polygon = PackedVector2Array(7.14773, 17.8693, 329.77, 18.5191, 330.745, -148.153, 329.77, -205.01, 329.77, -181.292, 5.52325, -178.693, 8.12242, -116.638, 8.12242, -92.5956, -199.812, -91.296, -326.521, -92.5956, -326.196, -217.681, -516.261, -216.706, -679.684, -212.807, -679.359, 114.039, -325.872, 113.714, -326.846, -45.8105, 8.12242, -46.1354, 8.12242, 17.8693, -6.17304, 17.2195, -34.1142, -18.5191, -320.023, 145.879, -706.651, 143.28, -722.246, -265.441, -299.88, -264.141, 137.431, -266.091, 394.75, -236.85, 380.454, 33.4644, 12.671, 51.0088)
+polygon = PackedVector2Array(10.3967, 18.1942, 329.77, 18.5191, 330.745, -148.153, 329.77, -205.01, 329.77, -181.292, 5.52325, -178.693, 8.12242, -116.638, 8.12242, -92.5956, -199.812, -91.296, -326.521, -92.5956, -326.196, -217.681, -516.261, -216.706, -679.684, -212.807, -679.359, 114.039, -325.872, 113.714, -326.846, -45.8105, 8.12242, -46.1354, 7.47263, 18.844, -33.7893, 21.4432, -34.1142, -18.5191, -320.023, 145.879, -706.651, 143.28, -722.246, -265.441, -299.88, -264.141, 137.431, -266.091, 394.75, -236.85, 380.454, 33.4644, -144.904, 50.359, -80.2495, 12.0212, -14.2955, 26.9664)
 
 [node name="Arena door" parent="." instance=ExtResource("8_vu6tb")]
 position = Vector2(-1104, 2)
 metadata/key = 2
 
 [node name="Gun robot2" parent="." instance=ExtResource("8_ddse4")]
-position = Vector2(10.9998, -238)
+position = Vector2(-9, -285)
 scale = Vector2(0.48, 0.48)
 metadata/Active = false
 
 [node name="Turret" parent="." instance=ExtResource("9_32i1h")]
-position = Vector2(-1594, 378)
+position = Vector2(257, -266)
+rotation = 1.57068
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2gqr8")
 
 [connection signal="player_died" from="BasicMan" to="." method="_on_basic_man_player_died"]
 [connection signal="player_primary_fire" from="BasicMan" to="." method="_on_basic_man_player_primary_fire"]
