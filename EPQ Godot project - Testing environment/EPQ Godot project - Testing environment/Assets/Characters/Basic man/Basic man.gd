@@ -24,9 +24,12 @@ func on_player_primary_fire():
 	var bulletspawn = $"Pistol Bullet spawn"
 	if weapon == 1:
 		bulletspawn = $"Pistol Bullet spawn"
+		$Pistolaudio.play()
 	if weapon == 2:
 		bulletspawn = $"MG Bullet spawns".get_children()[selectedspawn % 2]
 		selectedspawn += 1
+		$Machinegunaudio.play()
+		
 	Global.currentammo[weapon] -=1
 	print(Global.currentammo[weapon])
 		

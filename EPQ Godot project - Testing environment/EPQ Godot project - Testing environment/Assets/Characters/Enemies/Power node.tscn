@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvjrl7sq2xrm4"]
+
+[ext_resource type="Texture2D" uid="uid://bd43hbbjdfo22" path="res://Assets/PNGs/Power node.png" id="1_bmruf"]
+[ext_resource type="Script" path="res://Assets/Characters/Enemies/Power node.gd" id="1_evip1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjhpo"]
+size = Vector2(108, 109)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_evip1")
+
+[node name="PowerNode" type="Sprite2D" parent="."]
+position = Vector2(-6, 17)
+texture = ExtResource("1_bmruf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PowerNode"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerNode/StaticBody2D"]
+position = Vector2(3, -19)
+shape = SubResource("RectangleShape2D_sjhpo")
+debug_color = Color(0, 0.6, 0.701961, 0.176471)

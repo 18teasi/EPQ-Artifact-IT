@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjqqktvu5j6qr"]
+[gd_scene load_steps=17 format=3 uid="uid://bjqqktvu5j6qr"]
 
 [ext_resource type="PackedScene" uid="uid://b3f88hxg3t763" path="res://Assets/Characters/Basic man/Basic man.tscn" id="1_4d570"]
 [ext_resource type="Script" path="res://Assets/testing scene.gd" id="1_u6ar8"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://csm8eu25vnnsd" path="res://Assets/Characters/Enemies/gun_robot.tscn" id="8_ddse4"]
 [ext_resource type="PackedScene" uid="uid://cmbjhdf3brt32" path="res://Assets/Environment/arena_door.tscn" id="8_vu6tb"]
 [ext_resource type="PackedScene" uid="uid://tl8k41fg36gk" path="res://Assets/Characters/Enemies/Turret.tscn" id="9_32i1h"]
+[ext_resource type="Script" path="res://Assets/Boss fight trigger.gd" id="10_tjhfe"]
+[ext_resource type="PackedScene" uid="uid://be3g1vkunddcn" path="res://Assets/Characters/Enemies/Bosses/computer_boss_controller.tscn" id="11_r7su3"]
+[ext_resource type="Script" path="res://Assets/Camera2D.gd" id="12_ngkig"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_q2fa2"]
 tile_data = PackedInt32Array(0, 262144, 4, 65536, 262144, 5)
@@ -272,19 +275,18 @@ texture = ExtResource("6_i3fb6")
 sources/0 = SubResource("TileSetAtlasSource_hu07k")
 pattern_0 = SubResource("TileMapPattern_q2fa2")
 
-[sub_resource type="Environment" id="Environment_2gqr8"]
-volumetric_fog_enabled = true
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awqii"]
+size = Vector2(133.592, 229)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_u6ar8")
 
 [node name="BasicMan" parent="." instance=ExtResource("1_4d570")]
+z_index = 1
 position = Vector2(-63, 13)
 rotation = -0.00729599
 scale = Vector2(0.403333, 0.384391)
 floor_stop_on_slope = false
-
-[node name="Camera2D" type="Camera2D" parent="BasicMan"]
 
 [node name="Projectiles" type="Node2D" parent="."]
 
@@ -340,9 +342,31 @@ metadata/Active = false
 position = Vector2(257, -266)
 rotation = 1.57068
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_2gqr8")
+[node name="Boss fight trigger" type="Area2D" parent="."]
+position = Vector2(-1212, 2)
+script = ExtResource("10_tjhfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss fight trigger"]
+position = Vector2(-5, -3)
+shape = SubResource("RectangleShape2D_awqii")
+
+[node name="ComputerBossController" parent="." instance=ExtResource("11_r7su3")]
+position = Vector2(-1741, -625)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-63, 13)
+rotation = -0.00729599
+scale = Vector2(0.403333, 0.384391)
+script = ExtResource("12_ngkig")
+
+[node name="Bosscutscenetimer" type="Timer" parent="Camera2D"]
+wait_time = 5.0
 
 [connection signal="player_died" from="BasicMan" to="." method="_on_basic_man_player_died"]
 [connection signal="player_primary_fire" from="BasicMan" to="." method="_on_basic_man_player_primary_fire"]
 [connection signal="player_weapon_change" from="BasicMan" to="." method="_on_basic_man_player_weapon_change"]
+[connection signal="body_entered" from="Boss fight trigger" to="Arena door" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Boss fight trigger" to="Boss fight trigger" method="_on_body_entered"]
+[connection signal="bossfightstart" from="Boss fight trigger" to="ComputerBossController" method="_on_boss_fight_trigger_bossfightstart"]
+[connection signal="bossfightstart" from="Boss fight trigger" to="Camera2D" method="_on_boss_fight_trigger_bossfightstart"]
+[connection signal="timeout" from="Camera2D/Bosscutscenetimer" to="Camera2D" method="_on_bosscutscenetimer_timeout"]
