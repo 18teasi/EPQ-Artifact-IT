@@ -6,9 +6,10 @@ var bullet_scene: PackedScene = preload ("res://Assets/Projectiles/Pistol_Bullet
 func _ready():
 	for enemy in get_tree().get_nodes_in_group("Enemy"):
 		enemy.connect("enemy_primary_fire", _enemy_primary_fire)
+	for spawner in get_tree().get_nodes_in_group("Spawner"):
+		spawner.connect("spawned", _on_spawner_spawn)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-
 
 
 func _on_basic_man_player_primary_fire(pos,direction,damage):
@@ -42,3 +43,11 @@ func _on_basic_man_player_died():
 	dead()
 func dead():
 	get_tree().change_scene_to_file("res://Death scene.tscn")
+
+
+func _on_spawner_spawn(object):
+	if object in get_tree().get_nodes_in_group("Enemy"):
+		object.connect("enemy_primary_fire", _enemy_primary_fire)
+	
+
+	

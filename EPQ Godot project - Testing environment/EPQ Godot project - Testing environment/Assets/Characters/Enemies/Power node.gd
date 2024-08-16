@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 var health = 200
 var damageinstance =0
 
@@ -14,9 +14,11 @@ func _process(delta):
 
 func hit():
 	health -= damageinstance
-	if health < 0:
+	print (health)
+	if health <= 0:
 		dead()
 
 func dead():
 	emit_signal("powernodedead")
+	queue_free()
 	

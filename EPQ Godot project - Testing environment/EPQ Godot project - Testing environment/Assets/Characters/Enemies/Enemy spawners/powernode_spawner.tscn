@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cndsfqnjh8e0v"]
+
+[ext_resource type="Script" path="res://Assets/Characters/Enemies/Enemy spawners/powernode_spawner.gd" id="1_jhrxe"]
+
+[node name="Powernode spawner" type="Node2D"]
+script = ExtResource("1_jhrxe")
+
+[node name="Marker2D" type="Marker2D" parent="."]

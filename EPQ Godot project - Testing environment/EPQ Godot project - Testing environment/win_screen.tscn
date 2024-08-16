@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dekowkltk4pr7"]
+
+[node name="Win screen" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.8
+anchor_bottom = 16.175
+offset_left = 537.0
+offset_top = 301.0
+offset_right = -515.0
+offset_bottom = -299.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "You win"
+fit_content = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 323)

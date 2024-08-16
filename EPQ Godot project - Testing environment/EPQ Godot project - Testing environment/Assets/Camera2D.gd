@@ -1,6 +1,7 @@
 extends Camera2D
 var gameplayactive = true
-
+signal bossfight_phase1()
+signal enddooropen()
 # Called when the node enters the scene tree for the first time.
 
 
@@ -22,3 +23,16 @@ func _on_boss_fight_trigger_bossfightstart():
 
 func _on_bosscutscenetimer_timeout():
 	gameplayactive = true
+	emit_signal("bossfight_phase1")
+
+
+func _on_computer_boss_controller_bossendcutscene():
+	gameplayactive = false
+	global_position = $"../ComputerBossController".global_position
+	$Bossendcutscenetimer.start()
+	
+
+
+func _on_bossendcutscenetimer_timeout():
+	gameplayactive = true
+	emit_signal("enddooropen")

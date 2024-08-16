@@ -3,19 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://bd43hbbjdfo22" path="res://Assets/PNGs/Power node.png" id="1_bmruf"]
 [ext_resource type="Script" path="res://Assets/Characters/Enemies/Power node.gd" id="1_evip1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjhpo"]
-size = Vector2(108, 109)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5gvi"]
+size = Vector2(143, 145)
 
-[node name="Node2D" type="Node2D"]
+[node name="Power_node" type="StaticBody2D" groups=["Powernode"]]
 script = ExtResource("1_evip1")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -0.5)
+shape = SubResource("RectangleShape2D_r5gvi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
 [node name="PowerNode" type="Sprite2D" parent="."]
-position = Vector2(-6, 17)
+position = Vector2(-4, 20)
 texture = ExtResource("1_bmruf")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="PowerNode"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerNode/StaticBody2D"]
-position = Vector2(3, -19)
-shape = SubResource("RectangleShape2D_sjhpo")
-debug_color = Color(0, 0.6, 0.701961, 0.176471)

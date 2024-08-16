@@ -7,7 +7,6 @@ var closed = false
 
 const doortexture = preload("res://Assets/PNGs/Lockdown door.png")
 @export var speed = 2
-@onready var path = $PathFolllow2D
 @onready var animation = $AnimationPlayer
 
 func _process(_delta):
@@ -33,6 +32,18 @@ func open():
 
 
 func _on_area_2d_body_entered(body):
-	print("a")
 	if body in get_tree().get_nodes_in_group("Player"):
 		close()
+
+
+
+
+
+func _on_boss_fight_trigger_body_entered(body):
+	if body in get_tree().get_nodes_in_group("Player"):
+		close()
+
+
+func _on_camera_2d_enddooropen():
+	animation.play("Open_2")
+	$AnimatableBody2D/LockdownDoor.texture = null

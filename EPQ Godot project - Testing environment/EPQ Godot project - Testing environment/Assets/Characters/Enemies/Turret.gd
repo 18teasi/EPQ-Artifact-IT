@@ -10,7 +10,7 @@ func on_primary_fire():
 	var active = get_meta("Active")
 	if active == true:
 		var bulletspawn = $"Attack spawn"
-		var direction = (Global.playerpos - position).normalized()
+		var direction = (Global.playerpos - global_position).normalized()
 		enemy_primary_fire.emit(bulletspawn.global_position, direction, damage)
 		can_primary_fire = false
 		$"Attack cooldown".start()
