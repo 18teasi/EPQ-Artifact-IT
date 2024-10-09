@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjqqktvu5j6qr"]
+[gd_scene load_steps=22 format=3 uid="uid://bjqqktvu5j6qr"]
 
 [ext_resource type="PackedScene" uid="uid://b3f88hxg3t763" path="res://Assets/Characters/Basic man/Basic man.tscn" id="1_4d570"]
 [ext_resource type="Script" path="res://Assets/testing scene.gd" id="1_u6ar8"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bjvn0w1vwp1t3" path="res://Assets/Characters/Enemies/Enemy spawners/turret_spawner.tscn" id="13_ub2g5"]
 [ext_resource type="PackedScene" uid="uid://cndsfqnjh8e0v" path="res://Assets/Characters/Enemies/Enemy spawners/powernode_spawner.tscn" id="14_7w0y2"]
 [ext_resource type="Script" path="res://Assets/End_trigger.gd" id="15_nci7y"]
+[ext_resource type="PackedScene" uid="uid://ig4353m7tgy8" path="res://Assets/Characters/Enemies/Enemy spawners/robot_spawner.tscn" id="16_3h8t4"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_q2fa2"]
 tile_data = PackedInt32Array(0, 262144, 4, 65536, 262144, 5)
@@ -374,7 +375,7 @@ one_shot = true
 wait_time = 7.0
 
 [node name="Turret spawner" parent="." groups=["Spawner"] instance=ExtResource("13_ub2g5")]
-position = Vector2(-1424, -144)
+position = Vector2(-1426, -148)
 
 [node name="Powernode spawner" parent="." groups=["Spawner"] instance=ExtResource("14_7w0y2")]
 position = Vector2(-1695, 22)
@@ -390,6 +391,9 @@ script = ExtResource("15_nci7y")
 position = Vector2(-0.5, -5)
 shape = SubResource("RectangleShape2D_wd3er")
 
+[node name="Robot spawner" parent="." groups=["Spawner"] instance=ExtResource("16_3h8t4")]
+position = Vector2(-2040, 392)
+
 [connection signal="player_died" from="BasicMan" to="." method="_on_basic_man_player_died"]
 [connection signal="player_primary_fire" from="BasicMan" to="." method="_on_basic_man_player_primary_fire"]
 [connection signal="player_weapon_change" from="BasicMan" to="." method="_on_basic_man_player_weapon_change"]
@@ -401,6 +405,7 @@ shape = SubResource("RectangleShape2D_wd3er")
 [connection signal="bossendcutscene" from="ComputerBossController" to="Camera2D" method="_on_computer_boss_controller_bossendcutscene"]
 [connection signal="bossfight_phase1" from="Camera2D" to="Turret spawner" method="_on_camera_2d_bossfight_phase_1"]
 [connection signal="bossfight_phase1" from="Camera2D" to="Powernode spawner" method="_on_camera_2d_bossfight_phase_1"]
+[connection signal="bossfight_phase1" from="Camera2D" to="Robot spawner" method="_on_camera_2d_bossfight_phase_1"]
 [connection signal="enddooropen" from="Camera2D" to="Arena door2" method="_on_camera_2d_enddooropen"]
 [connection signal="timeout" from="Camera2D/Bosscutscenetimer" to="Camera2D" method="_on_bosscutscenetimer_timeout"]
 [connection signal="timeout" from="Camera2D/Bossendcutscenetimer" to="Camera2D" method="_on_bossendcutscenetimer_timeout"]

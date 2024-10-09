@@ -33,7 +33,7 @@ func _process(_delta):
 	
 	#movement code
 	if not inrange:
-		move_and_collide((Global.playerpos - position).normalized())
+		move_and_collide((Global.playerpos - global_position).normalized())
 		
 		
 

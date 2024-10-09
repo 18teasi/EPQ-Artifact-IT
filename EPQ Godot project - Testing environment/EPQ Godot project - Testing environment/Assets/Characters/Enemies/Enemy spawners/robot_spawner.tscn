@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ig4353m7tgy8"]
+
+[ext_resource type="Script" path="res://Assets/Characters/Enemies/Enemy spawners/robot_spawner.gd" id="1_7lrhj"]
+
+[node name="Turret spawner" type="Node2D"]
+script = ExtResource("1_7lrhj")
