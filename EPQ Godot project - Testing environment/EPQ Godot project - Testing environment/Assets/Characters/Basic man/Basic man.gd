@@ -44,6 +44,7 @@ func hit():
 	print(Global.playerhealth)
 	if Global.playerhealth <= 0:
 		dead()
+		Global.playerhealth = Global.playermaxhealth
 	$"Blood particle emitter".emitting = true
 
 
