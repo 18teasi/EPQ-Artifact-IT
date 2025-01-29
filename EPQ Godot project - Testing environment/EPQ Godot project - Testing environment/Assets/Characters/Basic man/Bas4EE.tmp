@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3f88hxg3t763"]
+[gd_scene load_steps=9 format=3 uid="uid://b3f88hxg3t763"]
 
 [ext_resource type="Script" path="res://Assets/Characters/Basic man/Basic man.gd" id="1_xusa1"]
 [ext_resource type="Texture2D" uid="uid://cmp3ihw1yqnm7" path="res://Assets/PNGs/Basic man.png" id="2_mjhwk"]
@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://sreum1vv1g8c" path="res://Assets/Audio/meaty-gunshot-101257.mp3" id="4_077yh"]
 [ext_resource type="AudioStream" uid="uid://urlea8cnyjhf" path="res://Assets/Audio/machine-gun.mp3" id="5_in2fu"]
 [ext_resource type="AudioStream" uid="uid://bfqdey34cvu21" path="res://Assets/Audio/concrete-footsteps-1-6265.mp3" id="6_6tejt"]
-[ext_resource type="AudioStream" uid="uid://b2os1fq6nhang" path="res://Assets/Audio/industrial-ambience-67112.mp3" id="7_6auk0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2wqv"]
 size = Vector2(143, 65)
@@ -80,12 +79,5 @@ stream = ExtResource("5_in2fu")
 
 [node name="Footstepaudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_6tejt")
-autoplay = true
-
-[node name="Ambienceaudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_6auk0")
-volume_db = -16.965
-pitch_scale = 0.6
-autoplay = true
 
 [connection signal="timeout" from="Primary fire cooldown" to="." method="_on_primary_fire_cooldown_timeout"]

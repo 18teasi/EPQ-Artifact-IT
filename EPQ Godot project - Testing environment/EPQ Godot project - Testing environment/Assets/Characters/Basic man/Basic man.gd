@@ -55,6 +55,11 @@ func _process(_delta):
 	#movement code
 	var direction = Input.get_vector("MoveLeft","MoveRight","MoveUp","MoveDown")
 	velocity = direction * 500
+	if velocity > Vector2(0,0) or velocity < Vector2(0,0):
+		$Footstepaudio.stream_paused = false
+	else:
+		$Footstepaudio.stream_paused = true
+		
 	move_and_slide()
 	damage = damagevalues[weapon]
 	
@@ -95,7 +100,8 @@ func _process(_delta):
 		player_weapon_change.emit()
 		
 	
-
+func _ready():
+	$Footstepaudio.stream_paused = true
 
 func _on_primary_fire_cooldown_timeout():
 	can_primary_fire = true

@@ -75,6 +75,7 @@ metadata/key = 0
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 position = Vector2(0, -376)
 rotation = 1.5708
+scale = Vector2(1, 1)
 
 [node name="LockdownDoor" type="Sprite2D" parent="AnimatableBody2D"]
 position = Vector2(-28.7718, -1.25766e-06)

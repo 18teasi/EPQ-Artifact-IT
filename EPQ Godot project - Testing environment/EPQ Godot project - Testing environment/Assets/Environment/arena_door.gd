@@ -8,6 +8,12 @@ var closed = false
 const doortexture = preload("res://Assets/PNGs/Lockdown door.png")
 @export var speed = 2
 @onready var animation = $AnimationPlayer
+@export var arena = 0
+@export var boss = false
+	
+func _ready():
+	for node in get_tree().get_nodes_in_group("Arenastart"):
+		node.connect("arenastart",on_arena_start)
 
 func _process(_delta):
 	if Input.is_key_pressed(KEY_G):
@@ -36,12 +42,16 @@ func _on_area_2d_body_entered(body):
 		close()
 
 
-
+func on_arena_start(activearena:int):
+	if activearena == arena:
+		print("activate")
+		close()
 
 
 func _on_boss_fight_trigger_body_entered(body):
 	if body in get_tree().get_nodes_in_group("Player"):
-		close()
+		if boss:
+			close()
 
 
 func _on_camera_2d_enddooropen():
