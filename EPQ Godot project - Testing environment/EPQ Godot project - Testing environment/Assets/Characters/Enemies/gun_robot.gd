@@ -6,6 +6,7 @@ var damage = 15
 var inrange = false
 var selectedspawn = 0
 signal enemy_primary_fire(pos, direction, damage)
+signal enemy_death()
 @onready var bulletspawn = $"Bullet spawns/Marker2D"
 
 func on_primary_fire():
@@ -38,6 +39,8 @@ func _process(_delta):
 		
 
 func dead():
+	print("Enemy death")
+	enemy_death.emit()
 	queue_free()
 
 func hit():

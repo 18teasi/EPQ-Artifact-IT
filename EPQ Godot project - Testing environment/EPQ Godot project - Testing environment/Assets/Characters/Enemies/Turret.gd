@@ -4,6 +4,7 @@ var health = 40
 var can_primary_fire = true
 var damage = 10
 signal enemy_primary_fire(pos, direction, damage)
+signal enemy_death()
 
 
 func on_primary_fire():
@@ -30,6 +31,7 @@ func _process(_delta):
 		
 
 func dead():
+	enemy_death.emit()
 	queue_free()
 
 func hit():

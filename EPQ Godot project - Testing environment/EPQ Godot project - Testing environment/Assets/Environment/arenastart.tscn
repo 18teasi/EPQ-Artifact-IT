@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtwh4"]
 size = Vector2(135, 221)
 
-[node name="Arena trigger" type="Node2D"]
+[node name="Arena trigger" type="Node2D" groups=["ArenaTrigger"]]
 script = ExtResource("1_41hj2")
 
 [node name="Area2D" type="Area2D" parent="."]

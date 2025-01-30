@@ -15,6 +15,8 @@ func _ready():
 	for node in get_tree().get_nodes_in_group("Arenastart"):
 		node.connect("arenastart",on_arena_start)
 
+	connect("arenaend", on_arena_end)
+
 func _process(_delta):
 	if Input.is_key_pressed(KEY_G):
 		close()
@@ -57,3 +59,6 @@ func _on_boss_fight_trigger_body_entered(body):
 func _on_camera_2d_enddooropen():
 	animation.play("Open_2")
 	$AnimatableBody2D/LockdownDoor.texture = null
+
+func on_arena_end():
+	print ("arena end")

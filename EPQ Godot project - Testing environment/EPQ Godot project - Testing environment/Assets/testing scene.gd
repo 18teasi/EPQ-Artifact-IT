@@ -1,6 +1,7 @@
 extends Node2D
 var bullet_scene: PackedScene = preload ("res://Assets/Projectiles/Pistol_Bullet.tscn")
 
+signal arenaend()
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -49,5 +50,8 @@ func _on_spawner_spawn(object):
 	if object in get_tree().get_nodes_in_group("Enemy"):
 		object.connect("enemy_primary_fire", _enemy_primary_fire)
 	
-
+func _on_enemy_death():
+	print("enemy death")
+	if len(get_tree().get_nodes_in_group("Enemy")) == 0:
+		arenaend.emit()
 	

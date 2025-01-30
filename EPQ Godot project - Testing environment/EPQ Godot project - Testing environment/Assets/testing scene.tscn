@@ -1,14 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://bjqqktvu5j6qr"]
+[gd_scene load_steps=20 format=3 uid="uid://bjqqktvu5j6qr"]
 
 [ext_resource type="PackedScene" uid="uid://b3f88hxg3t763" path="res://Assets/Characters/Basic man/Basic man.tscn" id="1_4d570"]
 [ext_resource type="Script" path="res://Assets/testing scene.gd" id="1_u6ar8"]
 [ext_resource type="PackedScene" uid="uid://chjsq1rhkvpbe" path="res://Assets/Characters/test_dummy.tscn" id="4_bkowd"]
-[ext_resource type="PackedScene" uid="uid://dhu5qyi3a0vax" path="res://Assets/Characters/test_dummy_with_gun.tscn" id="5_ra3iw"]
 [ext_resource type="Texture2D" uid="uid://ceirm1smji3if" path="res://Assets/PNGs/bgtiles.png" id="6_i3fb6"]
 [ext_resource type="PackedScene" uid="uid://b1inlv6pg8s4o" path="res://Player UI.tscn" id="7_l1bmv"]
-[ext_resource type="PackedScene" uid="uid://csm8eu25vnnsd" path="res://Assets/Characters/Enemies/gun_robot.tscn" id="8_ddse4"]
 [ext_resource type="PackedScene" uid="uid://cmbjhdf3brt32" path="res://Assets/Environment/arena_door.tscn" id="8_vu6tb"]
-[ext_resource type="PackedScene" uid="uid://tl8k41fg36gk" path="res://Assets/Characters/Enemies/Turret.tscn" id="9_32i1h"]
 [ext_resource type="Script" path="res://Assets/Boss fight trigger.gd" id="10_tjhfe"]
 [ext_resource type="PackedScene" uid="uid://be3g1vkunddcn" path="res://Assets/Characters/Enemies/Bosses/computer_boss_controller.tscn" id="11_r7su3"]
 [ext_resource type="Script" path="res://Assets/Camera2D.gd" id="12_ngkig"]
@@ -314,11 +311,6 @@ rotation = -1.587
 position = Vector2(447, 171)
 rotation = -1.57079
 
-[node name="Gun Dummy" parent="." groups=["Enemy"] instance=ExtResource("5_ra3iw")]
-position = Vector2(126, -284)
-rotation = 1.57079
-metadata/Active = false
-
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(10, 61.9999)
 scale = Vector2(3.0779, 3.0779)
@@ -341,16 +333,6 @@ polygon = PackedVector2Array(10.3967, 18.1942, 329.77, 18.5191, 330.745, -148.15
 position = Vector2(3071, 1682)
 boss = true
 metadata/key = 2
-
-[node name="Gun robot2" parent="." instance=ExtResource("8_ddse4")]
-position = Vector2(-5, -285)
-scale = Vector2(0.48, 0.48)
-metadata/Active = false
-
-[node name="Turret" parent="." instance=ExtResource("9_32i1h")]
-position = Vector2(257, -266)
-rotation = 1.57068
-metadata/Active = false
 
 [node name="Boss fight trigger" type="Area2D" parent="."]
 position = Vector2(2963, 1682)
@@ -378,6 +360,7 @@ wait_time = 7.0
 
 [node name="Turret spawner" parent="." instance=ExtResource("13_ub2g5")]
 position = Vector2(2749, 1532)
+arena = -1
 
 [node name="Powernode spawner" parent="." groups=["Spawner"] instance=ExtResource("14_7w0y2")]
 position = Vector2(2480, 1702)
@@ -396,6 +379,7 @@ shape = SubResource("RectangleShape2D_wd3er")
 
 [node name="Robot spawner" parent="." instance=ExtResource("16_3h8t4")]
 position = Vector2(2135, 2072)
+selfarena = -1
 
 [node name="Arena door3" parent="." groups=["Door"] instance=ExtResource("8_vu6tb")]
 position = Vector2(-1117, -5)
@@ -413,6 +397,13 @@ rotation = 1.5708
 
 [node name="Arena trigger" parent="." instance=ExtResource("17_r4wsp")]
 position = Vector2(-1714, -1009)
+arena = 2
+
+[node name="Turret spawner2" parent="." instance=ExtResource("13_ub2g5")]
+position = Vector2(-1513, -179)
+
+[node name="Robot spawner2" parent="." instance=ExtResource("16_3h8t4")]
+position = Vector2(-1914, 163)
 
 [connection signal="player_died" from="BasicMan" to="." method="_on_basic_man_player_died"]
 [connection signal="player_primary_fire" from="BasicMan" to="." method="_on_basic_man_player_primary_fire"]

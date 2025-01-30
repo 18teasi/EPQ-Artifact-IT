@@ -9,6 +9,8 @@ extends CanvasLayer
 func update_ammo_counter():
 	if Global.currentammo[Global.weapon] > -1:
 		current_ammo_label.text = str(Global.currentammo[Global.weapon])
+	else:
+		current_ammo_label.text = "INF"
 	max_ammo_label.text = str(Global.maxammo[Global.weapon])
 func update_health_bar():
 	health_bar.value = Global.playerhealth
