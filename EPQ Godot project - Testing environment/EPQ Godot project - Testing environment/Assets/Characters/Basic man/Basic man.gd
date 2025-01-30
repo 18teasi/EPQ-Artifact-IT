@@ -31,7 +31,6 @@ func on_player_primary_fire():
 		$Machinegunaudio.play()
 		
 	Global.currentammo[weapon] -=1
-	print(Global.currentammo[weapon])
 		
 		
 	var player_direction = (get_global_mouse_position()- position).normalized()

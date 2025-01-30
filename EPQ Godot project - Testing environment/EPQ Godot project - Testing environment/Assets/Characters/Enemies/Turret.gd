@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var damageinstance = 0
 var health = 40
-var can_primary_fire = true
+var can_primary_fire = false
 var damage = 10
 signal enemy_primary_fire(pos, direction, damage)
 signal enemy_death()
@@ -17,7 +17,8 @@ func on_primary_fire():
 		$"Attack cooldown".start()
 
 	
-
+func _ready():
+	$"Attack cooldown".start()
 
 func _process(_delta):
 	look_at(Global.playerpos)
@@ -31,8 +32,8 @@ func _process(_delta):
 		
 
 func dead():
-	enemy_death.emit()
 	queue_free()
+	enemy_death.emit()
 
 func hit():
 	health -= damageinstance

@@ -9,6 +9,8 @@ func _ready():
 		enemy.connect("enemy_primary_fire", _enemy_primary_fire)
 	for spawner in get_tree().get_nodes_in_group("Spawner"):
 		spawner.connect("spawned", _on_spawner_spawn)
+	for enemy in get_tree().get_nodes_in_group("Enemy"):
+		enemy.connect("enemy_death", _on_enemy_death)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
@@ -49,9 +51,11 @@ func dead():
 func _on_spawner_spawn(object):
 	if object in get_tree().get_nodes_in_group("Enemy"):
 		object.connect("enemy_primary_fire", _enemy_primary_fire)
+		object.connect("enemy_death", _on_enemy_death)
 	
 func _on_enemy_death():
-	print("enemy death")
-	if len(get_tree().get_nodes_in_group("Enemy")) == 0:
+	print(get_tree().get_nodes_in_group("Enemy"))
+	if len(get_tree().get_nodes_in_group("Enemy")) == 1:
 		arenaend.emit()
+		print("arena end")
 	

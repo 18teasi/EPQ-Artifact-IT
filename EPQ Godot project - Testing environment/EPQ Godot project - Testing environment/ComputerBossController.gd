@@ -29,4 +29,4 @@ func endboss():
 func powernode_spawn(object):
 	if object in get_tree().get_nodes_in_group("Powernode"):
 		object.connect("powernodedead", _on_power_node_powernodedead)
-	print("Powernode spawned")
+		print("Powernode spawned")

@@ -14,8 +14,8 @@ const doortexture = preload("res://Assets/PNGs/Lockdown door.png")
 func _ready():
 	for node in get_tree().get_nodes_in_group("Arenastart"):
 		node.connect("arenastart",on_arena_start)
-
-	connect("arenaend", on_arena_end)
+	
+	get_parent().connect("arenaend", on_arena_end)
 
 func _process(_delta):
 	if Input.is_key_pressed(KEY_G):
@@ -27,8 +27,7 @@ func close():
 	if not closed:
 		$AnimatableBody2D/LockdownDoor.texture = doortexture
 		animation.play("Open")
-		var arena = get_meta("key")
-		print("opening arena door",  arena)
+		print("closing arena door",  arena)
 		closed = true
 func open():
 	if closed:
@@ -61,4 +60,4 @@ func _on_camera_2d_enddooropen():
 	$AnimatableBody2D/LockdownDoor.texture = null
 
 func on_arena_end():
-	print ("arena end")
+	open()

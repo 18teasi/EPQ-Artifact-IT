@@ -39,9 +39,8 @@ func _process(_delta):
 		
 
 func dead():
-	print("Enemy death")
-	enemy_death.emit()
 	queue_free()
+	enemy_death.emit()
 
 func hit():
 	health -= damageinstance

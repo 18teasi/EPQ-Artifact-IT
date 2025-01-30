@@ -331,10 +331,11 @@ polygon = PackedVector2Array(10.3967, 18.1942, 329.77, 18.5191, 330.745, -148.15
 
 [node name="Arena door" parent="." groups=["Door"] instance=ExtResource("8_vu6tb")]
 position = Vector2(3071, 1682)
+arena = -1
 boss = true
 metadata/key = 2
 
-[node name="Boss fight trigger" type="Area2D" parent="."]
+[node name="Boss fight trigger" type="Area2D" parent="." groups=["Boss trigger"]]
 position = Vector2(2963, 1682)
 script = ExtResource("10_tjhfe")
 
@@ -367,6 +368,7 @@ position = Vector2(2480, 1702)
 
 [node name="Arena door2" parent="." groups=["Door"] instance=ExtResource("8_vu6tb")]
 position = Vector2(1864, 1742)
+arena = 1
 boss = true
 
 [node name="End_trigger" type="Area2D" parent="." groups=["Player"]]
@@ -394,6 +396,7 @@ rotation = 1.5708
 [node name="Arena door5" parent="." instance=ExtResource("8_vu6tb")]
 position = Vector2(-1730, -855)
 rotation = 1.5708
+arena = 1
 
 [node name="Arena trigger" parent="." instance=ExtResource("17_r4wsp")]
 position = Vector2(-1714, -1009)

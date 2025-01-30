@@ -6,7 +6,7 @@ func spawn_node():
 	var powernode = powernodescene.instantiate() as Node2D
 	add_child(powernode)
 	spawned.emit(powernode)
-	print("Spawn attempted")
+	print("powernode Spawn attempted")
 	
 
 func _on_camera_2d_bossfight_phase_1():
