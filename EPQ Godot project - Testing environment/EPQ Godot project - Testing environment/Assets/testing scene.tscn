@@ -371,6 +371,9 @@ scale = Vector2(3.0779, 3.0779)
 position = Vector2(-0.649796, -1.29959)
 polygon = PackedVector2Array(44.5109, -18.844, 46.1354, 49.7092, 371.032, 47.4349, 370.382, -162.448, 42.2366, -158.225, 46.7851, -63.6798, -289.808, -66.9288, -289.808, -194.288, -447.708, -194.288, -447.058, -336.593, -320.998, -336.593, -319.698, -577.017, -608.207, -576.367, -610.156, -465.252, -797.947, -467.202, -798.596, -513.337, -1086.45, -513.337, -1086.45, -476.949, -1406.8, -480.198, -1407.45, -624.777, -1508.17, -624.127, -1505.25, -591.962, -1662.82, -594.886, -1664.45, -626.076, -1758.99, -625.426, -1761.92, -483.771, -2093.96, -484.421, -2093.96, -547.451, -2227.49, -548.101, -2225.22, -382.079, -2093.96, -381.429, -2096.23, -416.193, -1763.86, -414.568, -1761.92, -316.774, -1406.15, -322.623, -1406.8, -431.138, -1088.4, -431.463, -1089.38, -401.248, -797.947, -397.674, -797.947, -431.463, -610.806, -434.062, -607.557, -335.294, -482.797, -336.593, -482.147, -193.639, -641.346, -192.989, -641.021, 144.254, -475.974, 146.204, -286.234, 143.604, -285.909, -14.6204, 4.54855, -18.1942, 44.5109, -16.5697, -356.412, 234.9, -648.819, 167.647, -1300.56, -23.0677, -2292.8, -311.901, -2204.43, -700.802, -242.048, -647.519, 534.13, -130.284, 245.947, 208.584, -5.19835, 103.967)
 
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Level collision"]
+polygon = PackedVector2Array(-481.497, -402.547, -481.822, -434.387, -512.362, -434.387, -512.687, -467.202, -481.172, -466.552, -480.847, -497.092, -450.632, -498.392, -450.632, -465.252, -418.142, -466.552, -418.142, -434.712, -448.358, -435.037, -448.683, -402.547)
+
 [node name="Arena door" parent="." groups=["Door"] instance=ExtResource("8_vu6tb")]
 position = Vector2(-4554, -1286)
 arena = -1
@@ -409,7 +412,7 @@ arena = -1
 position = Vector2(-5145, -1266)
 
 [node name="Arena door2" parent="." groups=["Door"] instance=ExtResource("8_vu6tb")]
-position = Vector2(-5761, -1226)
+position = Vector2(-5765, -1273)
 arena = 1
 boss = true
 
@@ -435,12 +438,12 @@ position = Vector2(-1250, 31)
 position = Vector2(-1746, -522)
 rotation = 1.5708
 
-[node name="Arena door5" parent="." instance=ExtResource("8_vu6tb")]
+[node name="Arena door5" parent="." groups=["Door"] instance=ExtResource("8_vu6tb")]
 position = Vector2(-1730, -855)
 rotation = 1.5708
 arena = 1
 
-[node name="Arena trigger" parent="." instance=ExtResource("17_r4wsp")]
+[node name="Arena trigger" parent="." groups=["Arenastart"] instance=ExtResource("17_r4wsp")]
 position = Vector2(-1714, -1009)
 arena = 1
 
@@ -462,19 +465,19 @@ arena = 1
 position = Vector2(-3570, -1262)
 selfarena = 2
 
-[node name="Arena trigger2" parent="." instance=ExtResource("17_r4wsp")]
+[node name="Arena trigger2" parent="." groups=["Arenastart"] instance=ExtResource("17_r4wsp")]
 position = Vector2(-2828, -1270)
 arena = 2
 
-[node name="Arena door6" parent="." instance=ExtResource("8_vu6tb")]
+[node name="Arena door6" parent="." groups=["Door"] instance=ExtResource("8_vu6tb")]
 position = Vector2(-2701, -1267)
 arena = 2
 
-[node name="Arena door7" parent="." instance=ExtResource("8_vu6tb")]
+[node name="Arena door7" parent="." groups=["Door"] instance=ExtResource("8_vu6tb")]
 position = Vector2(-2190, -1273)
 arena = 1
 
-[node name="Arena door8" parent="." instance=ExtResource("8_vu6tb")]
+[node name="Arena door8" parent="." groups=["Door"] instance=ExtResource("8_vu6tb")]
 position = Vector2(-3693, -1259)
 arena = 2
 

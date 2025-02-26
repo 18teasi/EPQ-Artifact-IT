@@ -8,7 +8,7 @@ var closed = false
 const doortexture = preload("res://Assets/PNGs/Lockdown door.png")
 @export var speed = 2
 @onready var animation = $AnimationPlayer
-@export var arena = 0
+@export var arena: int
 @export var boss = false
 	
 func _ready():
@@ -44,6 +44,8 @@ func _on_area_2d_body_entered(body):
 
 
 func on_arena_start(activearena:int):
+	print(arena,"Recieved")
+	print(activearena)
 	if activearena == arena:
 		print("activate")
 		close()
@@ -58,6 +60,8 @@ func _on_boss_fight_trigger_body_entered(body):
 func _on_camera_2d_enddooropen():
 	animation.play("Open_2")
 	$AnimatableBody2D/LockdownDoor.texture = null
+	
 
 func on_arena_end():
-	open()
+	if boss != true:
+		open()

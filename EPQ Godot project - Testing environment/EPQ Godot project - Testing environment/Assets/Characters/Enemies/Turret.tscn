@@ -22,7 +22,7 @@ script = ExtResource("1_gvu08")
 metadata/Active = true
 
 [node name="Attack cooldown" type="Timer" parent="."]
-wait_time = 0.75
+wait_time = 1.1
 
 [node name="TurretBase" type="Sprite2D" parent="."]
 position = Vector2(2.38419e-07, -1)

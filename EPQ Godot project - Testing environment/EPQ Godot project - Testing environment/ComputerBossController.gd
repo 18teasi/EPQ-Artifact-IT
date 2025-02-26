@@ -20,6 +20,8 @@ func _on_boss_fight_trigger_bossfightstart():
 
 func _on_power_node_powernodedead():
 	emit_signal("bossendcutscene")
+	for body in get_tree().get_nodes_in_group("Enemy"):
+		body.queue_free()
 	$Monitor_sprite.play("Boss death")
 	
 

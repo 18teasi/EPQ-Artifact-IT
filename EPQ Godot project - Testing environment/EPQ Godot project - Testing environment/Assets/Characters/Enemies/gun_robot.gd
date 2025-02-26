@@ -2,7 +2,7 @@ extends CharacterBody2D
 var damageinstance = 0
 var health = 100
 var can_primary_fire = true
-var damage = 15
+var damage = 10
 var inrange = false
 var selectedspawn = 0
 signal enemy_primary_fire(pos, direction, damage)

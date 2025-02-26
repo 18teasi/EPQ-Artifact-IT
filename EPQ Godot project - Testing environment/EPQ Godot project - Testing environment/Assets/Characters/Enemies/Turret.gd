@@ -2,7 +2,7 @@ extends CharacterBody2D
 var damageinstance = 0
 var health = 40
 var can_primary_fire = false
-var damage = 10
+var damage = 8
 signal enemy_primary_fire(pos, direction, damage)
 signal enemy_death()
 
